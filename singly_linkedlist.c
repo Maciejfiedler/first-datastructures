@@ -28,6 +28,26 @@ void append(int val){
 	}
 }
 
+void insertfirst(int val){
+	node *newhead = NULL;
+
+	newhead = (node *) malloc(sizeof(node));
+
+	newhead->data = val;
+	newhead->next = head;
+
+	head = newhead;
+}
+
+void removefirst(){
+	node * todelete = NULL;
+
+	todelete = head;
+	head = head->next;
+
+	free(todelete);
+}
+
 void removelast(){
 	node *tailprev = head;
 	node *tail = head;
@@ -55,7 +75,12 @@ int main(){
 	append(15);
 	append(20);
 
+	insertfirst(1);
+
+	removefirst();
+
 	removelast();
+
 	printlist();
 
 	return 0;
