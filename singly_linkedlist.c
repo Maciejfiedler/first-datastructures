@@ -66,22 +66,26 @@ void printlist(){
 		printf("%d \n", trav->data);
 		trav = trav->next;
 	}
-
+}
+int size(){
+	int size = 0;
+	node *trav = head;
+	while(trav){
+		trav = trav->next;
+		size++;
+	}
+	return size;
 }
 
 int main(){
-	append(5);
-	append(10);
-	append(15);
-	append(20);
 
-	insertfirst(1);
-
-	removefirst();
-
-	removelast();
+	append(0);
+	append(1);
+	append(2);
+	append(3);
 
 	printlist();
+	printf("size = %d \n", size());
 
 	return 0;
 }
