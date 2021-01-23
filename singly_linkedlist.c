@@ -39,6 +39,27 @@ void insertfirst(int val){
 	head = newhead;
 }
 
+void insertat(int pos,int val){
+	int count = 1;
+	node *trav = head;
+	node *tmp = NULL;
+	node *new = NULL;
+	
+	while((pos - 1)>count){
+		trav = trav->next;
+		count++;
+	}
+	
+	tmp = trav->next;
+	printf("d: %d \n", tmp->data);
+
+	new = (node *) malloc(sizeof(node));
+	new->data = val;
+	new->next = tmp;
+
+	trav->next = new;
+}
+
 void removefirst(){
 	node * todelete = NULL;
 
@@ -83,6 +104,12 @@ int main(){
 	append(1);
 	append(2);
 	append(3);
+	append(4);
+	append(5);
+	append(6);
+	append(7);
+
+	insertat(3,18);
 
 	printlist();
 	printf("size = %d \n", size());
