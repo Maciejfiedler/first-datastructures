@@ -81,6 +81,23 @@ void removelast(){
 	free(tail);
 }
 
+void removeat(int pos){
+	int count = 1;
+	node *trav = head;
+
+	node *next = NULL;
+	while((pos-1)>count){
+		trav = trav->next;
+		count++;
+	}
+	next = trav->next->next;
+
+	trav->next = NULL;
+	free(trav->next);
+
+	trav->next = next;
+}
+
 void printlist(){
 	node *trav = head;
 	while(trav){
@@ -110,6 +127,7 @@ int main(){
 	append(7);
 
 	insertat(3,18);
+	removeat(3);
 
 	printlist();
 	printf("size = %d \n", size());
